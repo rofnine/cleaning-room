@@ -219,7 +219,7 @@ img { max-width: 100%; height: auto; display: block; }
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('./a1.png');
+    background-image: url('/cleaning-room/a1.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -439,9 +439,9 @@ img { max-width: 100%; height: auto; display: block; }
     background-position: center;
     transition: transform 0.8s ease;
 }
-#gallery-living { background-image: url('./b1.png'); }
-#gallery-kitchen { background-image: url('./b2.png'); }
-#gallery-bathroom { background-image: url('./b3.png'); }
+#gallery-living { background-image: url('/cleaning-room/b1.png'); }
+#gallery-kitchen { background-image: url('/cleaning-room/b2.png'); }
+#gallery-bathroom { background-image: url('/cleaning-room/b3.png'); }
 
 .gallery-item:hover .img-bg {
     transform: scale(1.1);
