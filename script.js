@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Header Scroll Effect
     const header = document.getElementById('header');
-    
+    const nav = document.querySelector('.nav');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -10,16 +11,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Smooth Scrolling for Navigation Links
+    if (mobileMenuBtn && nav) {
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                icon.className = isOpen ? 'ph ph-x' : 'ph ph-list';
+            }
+        });
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
-            
+            if (targetId === '#') return;
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                // Adjust scroll position for fixed header
                 const headerHeight = header.offsetHeight;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
@@ -28,12 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     top: offsetPosition,
                     behavior: 'smooth'
                 });
+
+                if (nav && mobileMenuBtn && nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon) icon.className = 'ph ph-list';
+                }
             }
         });
     });
 
-    // 3. Intersection Observer for Scroll Animations
-    // Dynamically add animation classes to elements
     const elementsToAnimate = [
         document.querySelectorAll('.section-title'),
         document.querySelectorAll('.section-desc'),
@@ -45,13 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.step')
     ];
 
-    // Flatten array and add base animation class
     const animatedElements = [];
     elementsToAnimate.forEach(nodeList => {
         nodeList.forEach((el, index) => {
             el.classList.add('animate-on-scroll');
-            // Add slight transition delay based on index for staggered effect
-            if(el.classList.contains('about-card') || el.classList.contains('service-card') || el.classList.contains('gallery-item') || el.classList.contains('advantage-item') || el.classList.contains('review-card') || el.classList.contains('step')) {
+            if (el.classList.contains('about-card') || el.classList.contains('service-card') || el.classList.contains('gallery-item') || el.classList.contains('advantage-item') || el.classList.contains('review-card') || el.classList.contains('step')) {
                 el.style.transitionDelay = `${index * 0.1}s`;
             }
             animatedElements.push(el);
@@ -68,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Optional: Stop observing once animated
                 observer.unobserve(entry.target);
             }
         });

@@ -599,27 +599,28 @@ img { max-width: 100%; height: auto; display: block; }
 .process-steps {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 4rem;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
 }
 .step {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    flex: 1;
+    flex: 0 1 150px;
 }
 .step-icon {
-    width: 100px;
-    height: 100px;
+    width: 82px;
+    height: 82px;
     background-color: var(--bg-white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2.35rem;
     color: var(--primary-olive);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     box-shadow: var(--shadow-sm);
     position: relative;
     transition: var(--transition);
@@ -633,27 +634,27 @@ img { max-width: 100%; height: auto; display: block; }
     font-weight: 700;
 }
 .step-arrow {
-    font-size: 2rem;
+    font-size: 1.35rem;
     color: var(--border-color);
 }
 
 /* 9. Bottom CTA Banner */
 .cta-banner {
-    padding: 10rem 0;
+    padding: 6.5rem 0;
     background-color: var(--primary-olive-dark);
     color: var(--bg-white);
     text-align: center;
 }
 .cta-title {
-    font-size: 3.5rem;
+    font-size: 2.85rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     line-height: 1.2;
 }
 .cta-desc {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     opacity: 0.9;
-    margin-bottom: 3rem;
+    margin-bottom: 2.25rem;
 }
 
 /* 10. Footer */
@@ -747,22 +748,64 @@ img { max-width: 100%; height: auto; display: block; }
     .gallery-item.large { grid-column: span 2; grid-row: span 1; }
     .advantages-grid { grid-template-columns: repeat(2, 1fr); }
     .reviews-grid { grid-template-columns: repeat(1, 1fr); }
-    .process-steps { flex-direction: column; gap: 2rem; }
-    .step-arrow { transform: rotate(90deg); margin: 1rem 0; }
+    .process-steps { flex-direction: column; gap: 1.15rem; margin-top: 2rem; }
+    .step-arrow { transform: rotate(90deg); margin: 0.35rem 0; }
 }
 
 @media (max-width: 768px) {
     .site-logo-image { width: 40px; height: 40px; }
     .hero-bg { background-position: 58% center; }
     .reviews-bg { background-position: center center; background-attachment: scroll; }
-    .nav { display: none; }
-    .mobile-menu-btn { display: block; }
+    .header-container { position: relative; }
+    .nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: 5%;
+        right: 5%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1.25rem;
+        background-color: rgba(251, 248, 241, 0.98);
+        color: var(--text-main);
+        border: 1px solid var(--border-color);
+        border-radius: 18px;
+        box-shadow: var(--shadow-lg);
+    }
+    .nav.active { display: flex; }
+    .nav ul { flex-direction: column; align-items: stretch; gap: 0.85rem; }
+    .nav a:not(.btn-outline) { display: block; color: var(--text-main); }
+    .nav .nav-actions { display: flex; }
+    .nav .btn-outline {
+        width: 100%;
+        color: var(--primary-olive-dark);
+        border-color: var(--primary-olive-light);
+    }
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border: 0;
+        border-radius: 50%;
+        color: currentColor;
+        background-color: rgba(255, 250, 240, 0.14);
+    }
+    .header.scrolled .mobile-menu-btn { background-color: var(--primary-light-bg); }
     .hero-title { font-size: 2.15rem; }
-    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .hero-actions { flex-direction: column; align-items: center; justify-content: center; }
+    .hero-actions .btn-primary { width: min(100%, 280px); }
     .section-title { font-size: 2rem; }
     .services-grid, .gallery-grid { grid-template-columns: 1fr; }
     .gallery-item.large { grid-column: span 1; }
     .advantages-grid { grid-template-columns: 1fr; }
-    .cta-title { font-size: 2.5rem; }
+    .process-steps { gap: 0.85rem; margin-top: 2rem; }
+    .step-icon { width: 74px; height: 74px; font-size: 2rem; margin-bottom: 0.75rem; }
+    .step-arrow { margin: 0.25rem 0; }
+    .cta-banner { padding: 5rem 0; }
+    .cta-title { font-size: 2rem; }
+    .cta-desc { font-size: 1.05rem; margin-bottom: 2rem; }
     .footer-info { flex-direction: column; gap: 2rem; }
 }
