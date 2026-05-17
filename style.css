@@ -1,4 +1,4 @@
-/* Base Variables */
+﻿/* Base Variables */
 :root {
     --bg-ivory: #FBF8F1;
     --bg-beige: #EFE6D8;
@@ -178,6 +178,30 @@ img { max-width: 100%; height: auto; display: block; }
     font-size: 1.25rem;
     font-weight: 800;
 }
+.site-logo {
+    color: var(--bg-white);
+    transition: var(--transition);
+}
+.site-logo-image {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    filter: brightness(0) invert(1) drop-shadow(0 2px 10px rgba(38, 32, 24, 0.22));
+    transition: var(--transition);
+}
+.site-logo .logo-text {
+    color: currentColor;
+    line-height: 1;
+}
+.header.scrolled .site-logo {
+    color: var(--primary-olive-dark);
+}
+.header.scrolled .site-logo-image {
+    filter: none;
+}
+.site-logo:hover {
+    opacity: 0.88;
+}
 .nav ul {
     display: flex;
     align-items: center;
@@ -219,10 +243,11 @@ img { max-width: 100%; height: auto; display: block; }
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/cleaning-room/a1.png');
+    background-image: url('./a1.png');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
+    background-color: var(--bg-beige);
     z-index: -1;
     transform: scale(1.05);
     animation: slowZoom 20s ease-in-out infinite alternate;
@@ -436,12 +461,14 @@ img { max-width: 100%; height: auto; display: block; }
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: var(--bg-beige);
     transition: transform 0.8s ease;
 }
-#gallery-living { background-image: url('/cleaning-room/b1.png'); }
-#gallery-kitchen { background-image: url('/cleaning-room/b2.png'); }
-#gallery-bathroom { background-image: url('/cleaning-room/b3.png'); }
+#gallery-living { background-image: url('./b1.png'); background-position: center center; }
+#gallery-kitchen { background-image: url('./b2.png'); background-position: center center; }
+#gallery-bathroom { background-image: url('./b3.png'); background-position: center center; }
 
 .gallery-item:hover .img-bg {
     transform: scale(1.1);
@@ -507,11 +534,16 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .reviews-bg {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('file:///C:/Users/USER/.gemini/antigravity/brain/e67041e3-0a90-4924-a39d-847c4bf75611/review_bg_1778642609513.png');
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./b1.png');
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: var(--primary-olive-dark);
+    background-attachment: scroll;
     z-index: -2;
 }
 .reviews::after {
@@ -720,6 +752,9 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 @media (max-width: 768px) {
+    .site-logo-image { width: 40px; height: 40px; }
+    .hero-bg { background-position: 58% center; }
+    .reviews-bg { background-position: center center; background-attachment: scroll; }
     .nav { display: none; }
     .mobile-menu-btn { display: block; }
     .hero-title { font-size: 2.15rem; }
