@@ -3,14 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.nav');
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
     if (mobileMenuBtn && nav) {
         mobileMenuBtn.addEventListener('click', () => {
             const isOpen = nav.classList.toggle('active');
@@ -77,14 +69,41 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.15
     };
 
+    const markAnimationComplete = (el) => {
+        el.classList.add('visible');
+        el.classList.add('animation-complete');
+    };
+
+    const revealPassedElements = () => {
+        const revealLine = window.scrollY + window.innerHeight * 0.92;
+        animatedElements.forEach(el => {
+            if (el.classList.contains('animation-complete')) return;
+            const elementTop = el.getBoundingClientRect().top + window.scrollY;
+            if (elementTop <= revealLine) {
+                markAnimationComplete(el);
+                observer.unobserve(el);
+            }
+        });
+    };
+
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                markAnimationComplete(entry.target);
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
     animatedElements.forEach(el => observer.observe(el));
+    window.addEventListener('scroll', revealPassedElements, { passive: true });
+    window.addEventListener('pageshow', () => {
+        animatedElements.forEach(el => {
+            if (el.classList.contains('visible')) {
+                el.classList.add('animation-complete');
+            }
+        });
+        revealPassedElements();
+    });
+    revealPassedElements();
 });

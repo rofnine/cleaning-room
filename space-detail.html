@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>공간별 청소 관리 | 두껍아 두껍아</title>
+  <meta name="description" content="거실, 주방, 욕실의 오염 포인트와 청소 범위, 작업 순서를 확인하세요.">
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="./style.css?v=20260630-ui1">
+  <link rel="stylesheet" href="./css/content-pages.css?v=20260630-ui1">
+</head>
+<body class="space-page">
+  <header class="header site-header-shell header-on-light" data-site-header data-current-page="services"></header>
+  <main data-space-detail>
+    <section class="space-ui-hero">
+      <div class="content-shell space-ui-hero-grid">
+        <div>
+          <p class="content-kicker">ROOM CARE GUIDE</p>
+          <h1 data-space-title>거실 청소 관리</h1>
+          <p data-space-intro>거실은 가족이 가장 오래 머무는 공간인 만큼 창틀, 문틀, 바닥, 수납장까지 차분히 확인합니다.</p>
+          <div class="space-guide-tags" data-space-tags></div>
+        </div>
+        <figure class="space-ui-photo">
+          <img data-space-image src="./b1.png" alt="거실 청소 관리 참고 사진">
+        </figure>
+      </div>
+    </section>
+
+    <section class="space-ui-section">
+      <div class="content-shell">
+        <div class="space-ui-grid">
+          <article class="space-info-card">
+            <span class="space-card-icon contamination" aria-hidden="true"></span>
+            <p class="content-kicker">COMMON SOIL</p>
+            <h2>자주 확인되는 오염</h2>
+            <ul data-space-contamination></ul>
+          </article>
+          <article class="space-info-card">
+            <span class="space-card-icon scope" aria-hidden="true"></span>
+            <p class="content-kicker">SERVICE SCOPE</p>
+            <h2>기본 작업 범위</h2>
+            <ul data-space-scope></ul>
+          </article>
+          <article class="space-info-card">
+            <span class="space-card-icon order" aria-hidden="true"></span>
+            <p class="content-kicker">WORK ORDER</p>
+            <h2>작업 순서</h2>
+            <ol data-space-order></ol>
+          </article>
+          <article class="space-info-card">
+            <span class="space-card-icon check" aria-hidden="true"></span>
+            <p class="content-kicker">FINAL CHECK</p>
+            <h2>체크리스트</h2>
+            <ul data-space-checklist></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-sources">
+      <div class="content-shell">
+        <div>
+          <p class="content-kicker">NAVER FIELD NOTES</p>
+          <h2>관련 현장 기록</h2>
+          <p>두껍아 두껍아 블로그의 실제 작업 기록을 공간별 안내와 함께 확인할 수 있습니다.</p>
+        </div>
+        <div class="space-source-list" data-space-sources></div>
+      </div>
+    </section>
+  </main>
+  <footer class="content-footer"><div class="content-shell"><p>두껍아 두껍아 입주청소</p><p>상담 010-8246-1832</p></div></footer>
+  <script src="./js/config.js?v=20260623-live1"></script>
+  <script type="module" src="./js/site/site-header.js?v=20260630-ui1"></script>
+  <script type="module" src="./js/pages/home-account.js?v=20260630-auth1"></script>
+  <script type="module" src="./js/pages/space-detail-page.js?v=20260630-ui1"></script>
+</body>
+</html>

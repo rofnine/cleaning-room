@@ -7,32 +7,10 @@
     <meta name="description" content="입주청소, 이사청소, 거주청소까지 생활 공간을 꼼꼼하게 관리하는 친환경 청소 서비스입니다.">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css?v=20260629-back1">
 </head>
 <body>
-    <header class="header" id="header">
-        <div class="container header-container">
-            <a href="#hero" class="logo site-logo" aria-label="두껍아 두껍아 홈으로 이동">
-                <img class="site-logo-image" src="./logo-mark.png" alt="두껍아 두껍아 입주청소 로고">
-                <span class="logo-text">두껍아 두껍아</span>
-            </a>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#about">ABOUT</a></li>
-                    <li><a href="#services">SERVICES</a></li>
-                    <li><a href="#gallery">GALLERY</a></li>
-                    <li><a href="#process">PROCESS</a></li>
-                    <li><a href="#reviews">REVIEWS</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <a href="#contact" class="btn-outline nav-btn">CONTACT</a>
-                </div>
-            </nav>
-            <button class="mobile-menu-btn" type="button" aria-label="메뉴 열기" aria-expanded="false">
-                <i class="ph ph-list"></i>
-            </div>
-        </div>
-    </header>
+    <header class="header site-header-shell" id="header" data-site-header data-current-page="home" data-overlay-header></header>
 
     <section class="hero" id="hero">
         <div class="hero-bg"></div>
@@ -50,9 +28,32 @@
                     입주 전후, 이사 전후, 거주 중 청소까지 공간에 맞춘 서비스를 제공합니다.
                 </p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn-primary btn-large">지금 상담 문의하기</a>
+                    <a href="tel:010-8246-1832" class="btn-primary btn-large">지금 바로 상담</a>
+                    <a href="./order.html?kind=booking" class="btn-hero-secondary btn-large">희망일정 예약</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">투명하게 확인하는 청소 견적</h2>
+                <p class="section-desc">시중 평균보다 여유 있게 인력과 마감 품질을 반영한 프리미엄 기준입니다.</p>
+            </div>
+            <div class="pricing-grid">
+                <article class="pricing-card">
+                    <p class="pricing-label">STANDARD</p><h3>스탠다드 청소</h3>
+                    <p class="pricing-amount"><strong>평당 15,000원</strong><span>입주청소 기준 · 최소 240,000원</span></p>
+                    <ul><li>천장·벽면 먼지 제거</li><li>바닥·창틀·주방·욕실 기본 세척</li><li>수납장·베란다 기본 관리</li><li>완료 체크</li></ul>
+                </article>
+                <article class="pricing-card premium-card">
+                    <p class="pricing-label">PREMIUM</p><h3>프리미엄 청소</h3>
+                    <p class="pricing-amount"><strong>평당 19,000원</strong><span>입주청소 기준 · 최소 300,000원</span></p>
+                    <ul><li>스탠다드 전체 범위</li><li>미세 분진 반복 제거</li><li>주방·욕실 집중 케어</li><li>마감 사진·관리자 완료 확인</li></ul>
+                </article>
+            </div>
+            <p class="pricing-note">표시 금액은 기본 예상가입니다. 현장 구조와 오염도, 주차, 엘리베이터와 추가 작업에 따라 최종 금액은 관리자 상담 후 달라질 수 있습니다.</p>
         </div>
     </section>
 
@@ -120,30 +121,30 @@
         <div class="container">
             <div class="section-header center">
                 <h2 class="section-title">공간별 청소 관리</h2>
-                <p class="section-desc">거실부터 주방, 욕실까지 생활 공간 곳곳을 세심하게 관리합니다.</p>
+                <p class="section-desc">거실부터 주방, 욕실까지 생활 공간 곳곳을 세심하게 관리합니다. 각 사진을 누르면 공간별 상세 안내가 새 탭으로 열립니다.</p>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item large">
+            <div class="gallery-grid" data-room-gallery>
+                <a class="gallery-item large" href="./space-detail.html?room=living" target="_blank" rel="noopener">
                     <div class="img-wrapper"><div class="img-bg" id="gallery-living"></div></div>
                     <div class="gallery-info">
                         <h3>거실 청소</h3>
                         <p>바닥, 창가, 벽면까지 환하고 쾌적하게 관리합니다.</p>
                     </div>
-                </div>
-                <div class="gallery-item">
+                </a>
+                <a class="gallery-item" href="./space-detail.html?room=kitchen" target="_blank" rel="noopener">
                     <div class="img-wrapper"><div class="img-bg" id="gallery-kitchen"></div></div>
                     <div class="gallery-info">
                         <h3>주방 청소</h3>
                         <p>기름때와 물때가 쌓이기 쉬운 주방을 세심하게 정리합니다.</p>
                     </div>
-                </div>
-                <div class="gallery-item">
+                </a>
+                <a class="gallery-item" href="./space-detail.html?room=bathroom" target="_blank" rel="noopener">
                     <div class="img-wrapper"><div class="img-bg" id="gallery-bathroom"></div></div>
                     <div class="gallery-info">
                         <h3>욕실 청소</h3>
                         <p>수전, 세면대, 타일 주변까지 위생적으로 관리합니다.</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -197,6 +198,18 @@
         </div>
     </section>
 
+    <section class="blog-section" id="blog">
+        <div class="container">
+            <div class="section-header center"><p class="blog-kicker">NAVER FIELD NOTES</p><h2 class="section-title">네이버 블로그 현장기록</h2><p class="section-desc">천안·아산과 충남 지역에서 진행한 입주청소 이야기를 자동으로 불러옵니다.</p></div>
+            <div class="blog-grid" data-blog-posts>
+                <a class="blog-card" href="https://blog.naver.com/rofnine" target="_blank" rel="noopener noreferrer"><div><p class="blog-meta">최근 현장 기록</p><h3>두껍아 두껍아 네이버 블로그</h3><p>청소 전후 사진과 자세한 작업 과정을 블로그에서 확인하세요.</p></div></a>
+                <a class="blog-card" href="https://blog.naver.com/rofnine" target="_blank" rel="noopener noreferrer"><div><p class="blog-meta">충남 입주청소</p><h3>공간별 꼼꼼한 청소 과정</h3><p>주방, 욕실, 창틀까지 실제 현장 중심으로 기록합니다.</p></div></a>
+                <a class="blog-card" href="https://blog.naver.com/rofnine" target="_blank" rel="noopener noreferrer"><div><p class="blog-meta">상담 전 참고</p><h3>우리 집과 비슷한 현장을 찾아보세요</h3><p>평수와 오염도에 따른 작업 사례를 확인할 수 있습니다.</p></div></a>
+            </div>
+            <div class="blog-more"><a class="btn-primary" href="https://blog.naver.com/rofnine" target="_blank" rel="noopener noreferrer">블로그에서 더 많은 현장 보기</a></div>
+        </div>
+    </section>
+
     <section class="cta-banner" id="contact">
         <div class="container cta-container">
             <h2 class="cta-title">새로운 시작을 위한 공간,<br>지금 바로 상담해보세요</h2>
@@ -214,9 +227,7 @@
                 </div>
                 <p class="footer-desc">고객이 안심하고 생활할 수 있는 깨끗한 공간을 만들어드립니다.</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
-                    <a href="https://blog.naver.com/rofnine" target="_blank" rel="noopener noreferrer" aria-label="Naver Blog"><i class="ph-fill ph-chat-circle-dots"></i></a>
+                    <a class="naver-blog-link" href="https://blog.naver.com/rofnine" target="_blank" rel="noopener noreferrer" aria-label="Naver Blog"><i class="ph-fill ph-chat-circle-dots"></i><span>작업 블로그</span></a>
                 </div>
             </div>
             <div class="footer-info">
@@ -225,9 +236,13 @@
                 <div class="info-item"><i class="ph ph-map-pin"></i><div><strong>서비스 지역</strong><p>입주청소 상담 후 안내</p></div></div>
             </div>
         </div>
-        <div class="footer-bottom"><div class="container"><p>&copy; 2026 두껍아 두껍아 All rights reserved.</p></div></div>
+        <div class="footer-bottom"><div class="container footer-bottom-inner"><p>&copy; 2026 두껍아 두껍아 All rights reserved.</p><a class="footer-admin-link" href="./auth.html?next=admin.html">관리자 로그인</a></div></div>
     </footer>
 
-    <script src="./script.js"></script>
+    <script src="./js/config.js?v=20260623-live1"></script>
+    <script type="module" src="./js/site/site-header.js?v=20260629-header5"></script>
+    <script type="module" src="./js/pages/home-account.js?v=20260624-account1"></script>
+    <script type="module" src="./js/pages/blog-section.js"></script>
+    <script src="./script.js?v=20260705-motion1"></script>
 </body>
 </html>

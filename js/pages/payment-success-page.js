@@ -1,0 +1,2 @@
+import{getSupabase}from'../lib/supabase.js';async function init(){const output=document.querySelector('[data-payment-result]'),query=new URLSearchParams(location.search);try{const client=await getSupabase();const{data,error}=await client.functions.invoke('confirm-payment',{body:{paymentKey:query.get('paymentKey'),orderId:query.get('orderId'),amount:Number(query.get('amount'))}});if(error)throw error;output.textContent=data.status==='paid'?'결제가 완료되었습니다.':'결제 상태를 확인해주세요.';}catch(error){output.textContent=error?.message||'결제 승인 중 문제가 발생했습니다. 관리자에게 문의해주세요.';}}init();
+

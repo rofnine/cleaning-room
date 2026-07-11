@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인·회원가입 | 두껍아 두껍아</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="./style.css?v=20260630-ui1">
+  <link rel="stylesheet" href="./css/account.css?v=20260630-auth1">
+</head>
+<body class="account-page">
+  <div class="local-preview-notice" data-local-preview-notice hidden role="alert">
+    이 페이지는 파일로 직접 열면 회원가입과 로그인이 작동하지 않습니다. 폴더의 <b>사이트실행.bat</b>을 더블클릭해 실행해주세요.
+  </div>
+  <main class="account-layout">
+    <a class="account-brand" href="./index.html">
+      <img src="./logo-mark.png" alt="">
+      <span>두껍아 두껍아</span>
+    </a>
+    <section class="account-card" aria-labelledby="auth-title">
+      <p class="account-eyebrow" data-auth-eyebrow>MY CLEANING</p>
+      <h1 id="auth-title" data-auth-title>로그인</h1>
+      <p class="account-copy" data-auth-copy>예약과 결제, 문의, 후기를 한곳에서 확인하세요.</p>
+      <div class="auth-modes" aria-label="계정 메뉴">
+        <button type="button" data-auth-mode="login" aria-pressed="true">로그인</button>
+        <button type="button" data-auth-mode="signup" aria-pressed="false">회원가입</button>
+        <button type="button" data-auth-mode="reset" aria-pressed="false">비밀번호 찾기</button>
+      </div>
+      <form class="account-form" data-auth-form novalidate>
+        <div class="form-field" data-display-name-field hidden>
+          <label for="auth-display-name">이름</label>
+          <input id="auth-display-name" name="displayName" type="text" autocomplete="name" maxlength="80">
+        </div>
+        <div class="form-field">
+          <label for="auth-email">이메일</label>
+          <input id="auth-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="form-field" data-password-field>
+          <label for="auth-password">비밀번호</label>
+          <input id="auth-password" name="password" type="password" autocomplete="current-password" minlength="8" required>
+          <small>영문과 숫자를 포함해 8자 이상 입력해주세요.</small>
+        </div>
+        <p id="auth-status" class="form-status" aria-live="polite"></p>
+        <div class="auth-unavailable-actions" data-auth-unavailable-actions hidden>
+          <a href="tel:010-8246-1832">전화 상담</a>
+          <a href="./inquiry.html">문의하기</a>
+        </div>
+        <button class="btn-primary account-submit" type="submit">로그인하기</button>
+      </form>
+    </section>
+  </main>
+  <script src="./js/local-preview-notice.js?v=20260623"></script>
+  <script src="./js/config.js?v=20260623-live1"></script>
+  <script type="module" src="./js/pages/auth-page.js?v=20260705-no-signup-coupon1"></script>
+</body>
+</html>
